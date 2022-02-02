@@ -1,0 +1,28 @@
+.loader {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    top: 30%;
+    left: 45%;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px dashed rgb(97, 100, 100);
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+    to {
+        transform: rotate(360deg) scale(1.5);
+    }
+}
+.loaderContainer {
+    width: 100vw;
+}
