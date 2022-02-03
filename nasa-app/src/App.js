@@ -26,6 +26,7 @@ function App() {
     );
     const lastElement = useRef();
     const observer = useRef();
+    const isFirstRun = useRef(true);
 
     useEffect(() => {
         fetchPosts(date.startDate, date.endDate);
@@ -36,6 +37,10 @@ function App() {
         if (isPostsLoading) return;
         if (postsError) return;
         if (observer.current) observer.current.disconnect();
+        if (isFirstRun.current) {
+            isFirstRun.current = false;
+            return;
+        }
         var callback = function (entries, observer) {
             if (entries[0].isIntersecting) {
                 setDate({
@@ -46,7 +51,6 @@ function App() {
         };
         observer.current = new IntersectionObserver(callback);
         observer.current.observe(lastElement.current);
-        console.log(lastElement.current);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isPostsLoading]);
 
@@ -77,6 +81,7 @@ function App() {
                 <Posts posts={posts} openPost={openPost} />
                 {isPostsLoading && <MyLoader />}
             </div>
+            <div ref={lastElement}></div>
             <Routes>
                 <Route
                     path="/posts/:date"
@@ -86,7 +91,7 @@ function App() {
                         </Modal>
                     }
                 />
-                <Route path="/" element={<div ref={lastElement}></div>} />
+                <Route path="/" element={<div />} />
             </Routes>
         </BrowserRouter>
     );
