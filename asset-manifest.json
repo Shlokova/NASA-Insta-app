@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/NASA-Insta-app/static/css/main.c4ef43c1.css",
-    "main.js": "/NASA-Insta-app/static/js/main.40d604ab.js",
+    "main.js": "/NASA-Insta-app/static/js/main.2e3ba47f.js",
     "static/media/space.svg": "/NASA-Insta-app/static/media/space.f88a3e0571943f7709bf.svg",
     "static/media/share.svg": "/NASA-Insta-app/static/media/share.7de91b6281b1fa3fc91e.svg",
     "static/media/loon-icon.svg": "/NASA-Insta-app/static/media/loon-icon.c43658853e6cafd28938.svg",
     "static/media/copy.svg": "/NASA-Insta-app/static/media/copy.dc1a641b7c09ce46d895.svg",
     "index.html": "/NASA-Insta-app/index.html",
     "main.c4ef43c1.css.map": "/NASA-Insta-app/static/css/main.c4ef43c1.css.map",
-    "main.40d604ab.js.map": "/NASA-Insta-app/static/js/main.40d604ab.js.map"
+    "main.2e3ba47f.js.map": "/NASA-Insta-app/static/js/main.2e3ba47f.js.map"
   },
   "entrypoints": [
     "static/css/main.c4ef43c1.css",
-    "static/js/main.40d604ab.js"
+    "static/js/main.2e3ba47f.js"
   ]
 }
