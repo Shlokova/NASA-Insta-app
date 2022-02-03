@@ -27,6 +27,7 @@ const PostFooter = ({ post, openPost }) => {
                         <div
                             onClick={() => {
                                 router('/');
+                                router('/NASA-Insta-app');
                                 openPost(post);
                             }}
                         ></div>
