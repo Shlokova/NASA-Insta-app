@@ -13,7 +13,6 @@ const Modal = ({ children, visible, setVisible }) => {
             setVisible(false);
         } else {
             router('/');
-            router('/NASA-Insta-app');
         }
     };
     return (

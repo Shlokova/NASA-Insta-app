@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import PostModal from './components/PostModal';
 import PostService from './API/PostService';
 import useFetching from './hooks/useFetching';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import PostShareModal from './components/PostShareModal';
 import MyLoader from './components/UI/Loader/MyLoader';
 
@@ -67,7 +67,7 @@ function App() {
     };
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="App">
                 <header className="header">
                     <div className="header-icon" />
@@ -84,16 +84,17 @@ function App() {
             <div ref={lastElement}></div>
             <Routes>
                 <Route
-                    path="NASA-Insta-app/posts/:date"
+                    exact
+                    path="/posts/:date"
                     element={
                         <Modal visible={true}>
                             <PostModal openPost={openPost} />
                         </Modal>
                     }
                 />
-                <Route path="/NASA-Insta-app" element={<div />} />
+                <Route exact path="/" element={<div />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
