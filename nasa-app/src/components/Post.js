@@ -9,7 +9,7 @@ const Post = ({ post, openPost }) => {
                 <div
                     className="img"
                     onClick={() => {
-                        router(`/posts/${post.date}`);
+                        router(`NASA-Insta-app/posts/${post.date}`);
                     }}
                 >
                     <img

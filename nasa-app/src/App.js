@@ -84,14 +84,14 @@ function App() {
             <div ref={lastElement}></div>
             <Routes>
                 <Route
-                    path="/posts/:date"
+                    path="NASA-Insta-app/posts/:date"
                     element={
                         <Modal visible={true}>
                             <PostModal openPost={openPost} />
                         </Modal>
                     }
                 />
-                <Route path="/" element={<div />} />
+                <Route path="/NASA-Insta-app" element={<div />} />
             </Routes>
         </BrowserRouter>
     );
