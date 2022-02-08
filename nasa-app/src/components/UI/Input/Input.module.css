@@ -1,0 +1,16 @@
+.input {
+    margin: 5px;
+    padding: 7px 10px;
+    font-weight: bold;
+    border: 1px solid rgb(177, 170, 189);
+    border-radius: 5px;
+    min-width: 10vw;
+    min-height: 5vh;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: rgb(16, 16, 17);
+}
+.input:hover {
+    border: 1px solid rgb(146, 138, 160);
+}
