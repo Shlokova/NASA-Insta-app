@@ -12,8 +12,8 @@ import DateForm from './components/DateForm';
 
 function App() {
     const numberOfPosts =
-        Math.round((window.innerHeight * 0.9) / 312) *
-        Math.round((window.innerWidth * 0.9) / 327);
+        Math.ceil((window.innerHeight * 0.9) / 312) *
+        Math.floor((window.innerWidth * 0.9) / 327);
     const [posts, setPosts] = useState([]);
     const [modal, setModal] = useState(false);
     const [selectedPost, setSelectedPost] = useState({});
