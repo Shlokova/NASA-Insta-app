@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Button from './UI/Button/Button';
 import Input from './UI/Input/Input';
-
-const DateForm = ({ dateSelect }) => {
-    const [startDate, setStartDate] = useState('1995-06-16');
+interface DateFormProps {
+    dateSelect: (data: string) => void;
+    initialDate: string;
+}
+const DateForm: React.FC<DateFormProps> = ({ dateSelect, initialDate }) => {
+    const [startDate, setStartDate] = useState<string>(initialDate);
     const dateNow = new Date();
     return (
         <div className="date-form">
@@ -12,11 +15,13 @@ const DateForm = ({ dateSelect }) => {
                 value={startDate}
                 min="1995-06-16"
                 max={dateNow.toISOString().slice(0, 10)}
-                onChange={(e) => setStartDate(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setStartDate(e.target.value)
+                }
             />
 
             <Button
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent) => {
                     e.preventDefault();
                     dateSelect(startDate);
                 }}

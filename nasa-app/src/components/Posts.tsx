@@ -1,7 +1,12 @@
 import React from 'react';
+import { IPost } from '../types/types';
 import Post from './Post';
 
-const Posts = ({ posts, openPost }) => {
+interface PostsProps {
+    posts: IPost[];
+    openPost: (post: IPost) => void;
+}
+const Posts: React.FC<PostsProps> = ({ posts, openPost }) => {
     return (
         <div className="container">
             {posts.map((post) => {

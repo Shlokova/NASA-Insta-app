@@ -1,7 +1,11 @@
 import React from 'react';
 import cl from './Button.module.css';
 
-const Button = ({ children, ...props }) => {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+    children?: React.ReactNode;
+}
+
+const Button = ({ children, ...props }: ButtonProps) => {
     return (
         <button className={cl.button} {...props}>
             {children}

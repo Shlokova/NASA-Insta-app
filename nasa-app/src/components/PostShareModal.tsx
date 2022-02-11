@@ -1,6 +1,10 @@
 import React from 'react';
+import { IPost } from '../types/types';
 
-const PostShareModal = ({ post }) => {
+interface PostShareModalProps {
+    post: IPost;
+}
+const PostShareModal: React.FC<PostShareModalProps> = ({ post }) => {
     return (
         <div className="share-modal">
             <div>

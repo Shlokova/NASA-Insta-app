@@ -1,7 +1,13 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IPost } from '../types/types';
 import PostFooter from './PostFooter';
 
-const Post = ({ post, openPost }) => {
+interface PostProps {
+    post: IPost;
+    openPost: (post: IPost) => void;
+}
+const Post: React.FC<PostProps> = ({ post, openPost }) => {
     const router = useNavigate();
     return (
         <div>

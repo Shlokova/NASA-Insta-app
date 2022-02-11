@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const PostFooter = ({ post, openPost }) => {
+import { IPost } from '../types/types';
+interface PostFooterProps {
+    post: IPost;
+    openPost: (post: IPost) => void;
+}
+const PostFooter: React.FC<PostFooterProps> = ({ post, openPost }) => {
     const [isLike, setIsLike] = useState(
         localStorage.getItem(`like_${post.date}`) || 'n'
     );

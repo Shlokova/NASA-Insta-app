@@ -2,19 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PostService from '../API/PostService';
 import useFetching from '../hooks/useFetching';
+import { IPost } from '../types/types';
 import PostFooter from './PostFooter';
 import MyLoader from './UI/Loader/MyLoader';
+interface PostModalProps {
+    openPost: (post: IPost) => void;
+}
 
-const PostModal = ({ openPost }) => {
-    const params = useParams();
-    const [post, setPost] = useState({});
-    const [fetchPostByDate, isLoading] = useFetching(async (date) => {
+const PostModal: React.FC<PostModalProps> = ({ openPost }) => {
+    const { date } = useParams<{ date?: string }>();
+    const [post, setPost] = useState<IPost>({
+        copyright: '',
+        date: '',
+        explanation: '',
+        hdurl: '',
+        media_type: '',
+        service_version: '',
+        title: '',
+        url: '',
+    });
+    const [fetchPostByDate, isLoading] = useFetching(async (date: string) => {
         const response = await PostService.getByDate(date);
         setPost(response);
     });
 
     useEffect(() => {
-        fetchPostByDate(params.date);
+        if (date) fetchPostByDate(date);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
@@ -28,7 +41,7 @@ const PostModal = ({ openPost }) => {
                             alt="post img"
                             src={
                                 post.media_type === 'video'
-                                    ? post.thumbnail_url
+                                    ? post?.thumbnail_url
                                     : post.hdurl
                             }
                         />

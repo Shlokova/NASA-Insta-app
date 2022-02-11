@@ -1,8 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import cl from './Modal.module.css';
-
-const Modal = ({ children, visible, setVisible }) => {
+interface ModalProps {
+    children?: React.ReactNode;
+    visible: boolean;
+    setVisible?: (visible: boolean) => void;
+}
+const Modal = ({ children, visible, setVisible }: ModalProps) => {
     const rootClasses = [cl.modal];
     const router = useNavigate();
     if (visible) {
